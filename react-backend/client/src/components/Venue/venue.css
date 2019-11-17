@@ -1,0 +1,22 @@
+.marginUp {
+  margin-top: 25px !important;
+}
+
+.spacing {
+  padding: 15px !important;
+}
+
+.tabBar {
+  background-color: white !important;
+  box-shadow: none !important;
+  border-bottom: 1px solid #e0e0e0 !important;
+  margin-top: 30px;
+}
+
+.MuiTab-textColorPrimary.Mui-selected {
+  color: #003b4c !important;
+}
+
+.PrivateTabIndicator-colorPrimary-122 {
+  background-color: #003b4c !important;
+}

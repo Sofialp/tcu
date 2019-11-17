@@ -1,0 +1,15 @@
+.buttomBar {
+  top: auto !important;
+  bottom: 0;
+  height: 50px;
+  padding: 5px;
+  background-color: #ffffff !important;
+}
+
+.centerItems {
+  padding-top: 20px !important;
+}
+
+.bookButton {
+  background-color: #003b4c !important;
+}

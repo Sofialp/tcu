@@ -1,0 +1,10 @@
+.paddings {
+  padding: 20px;
+  width: 80%;
+  margin: 20px auto;
+}
+
+.closeButton {
+  float: right !important;
+  background-color: #003b4c !important;
+}

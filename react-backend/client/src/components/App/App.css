@@ -1,0 +1,34 @@
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.menu {
+  display: flex;
+}
+
+.flex-grow-one {
+  flex-grow: 1;
+}
+
+.flex-grow-ten {
+  flex-grow: 10;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.default-margins {
+  margin-top: 25px;
+  margin-bottom: 60px;
+}
+
+.main-menu {
+  background-color: #003b4c !important;
+}

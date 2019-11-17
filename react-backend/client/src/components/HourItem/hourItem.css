@@ -1,0 +1,6 @@
+.MuiListItem-root.Mui-selected {
+  background-color: #003b4c !important;
+  color: #ffffff !important;
+  border-radius: 4px !important;
+  border: 1px solid #ffffff !important;
+}
