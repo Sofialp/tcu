@@ -22,7 +22,7 @@ class Confirmation extends Component {
       client,
       scheduleBooked
     } = this.props.history.location.state;
-    const body = `<div><h3>Gracias por reservar con nosotros!</h3><br><p>Número de reserva: ${bookingId}</p><br><p>Fecha: ${scheduleBooked.displayDate}</p><br><p>Horario: ${scheduleBooked.startHour} - ${scheduleBooked.endHour}</p><br><p>A nombre de: ${client.clientName} ${client.clientLastName}</p></div>`;
+    const body = `<div><h3>Reservación de cancha - Comité Deportivo de Santa Ana</h3><h3>Gracias por reservar con nosotros!</h3><br><p>Número de reserva: ${bookingId}</p><br><p>Fecha: ${scheduleBooked.displayDate}</p><br><p>Horario: ${scheduleBooked.startHour} - ${scheduleBooked.endHour}</p><br><p>A nombre de: ${client.clientName} ${client.clientLastName}</p></div>`;
     return body;
   };
 
@@ -91,7 +91,7 @@ class Confirmation extends Component {
               align="center"
               className="spaceUp"
             >
-              *Se ha enviado un correo con esta información.
+              *Se le ha enviado un correo con esta información.
             </Typography>
             <Typography variant="body2" gutterBottom align="center">
               Si no ve el correo electrónico, por favor revise su carpeta de
