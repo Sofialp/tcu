@@ -3,6 +3,7 @@ import Paper from '@material-ui/core/Paper';
 import Typography from '@material-ui/core/Typography';
 import Grid from '@material-ui/core/Grid';
 import Button from '@material-ui/core/Button';
+import constants from '../../utils/constants';
 import CheckCircleOutlineIcon from '@material-ui/icons/CheckCircleOutline';
 import './confirmation.css';
 
@@ -15,14 +16,25 @@ class Confirmation extends Component {
     this.props.history.push('/');
   };
 
+  getEmailBodyClient = () => {
+    const {
+      bookingId,
+      client,
+      scheduleBooked
+    } = this.props.history.location.state;
+    const body = `<div><h3>Gracias por reservar con nosotros!</h3><br><p>Número de reserva: ${bookingId}</p><br><p>Fecha: ${scheduleBooked.displayDate}</p><br><p>Horario: ${scheduleBooked.startHour} - ${scheduleBooked.endHour}</p><br><p>A nombre de: ${client.clientName} ${client.clientLastName}</p></div>`;
+    return body;
+  };
+
   sendEmail = () => {
+    const { client } = this.props.history.location.state;
     if (window.Email) {
       window.Email.send({
-        SecureToken: 'a275ca1d-bb55-46de-bc8f-a711ef87da18',
-        To: 'melvinsalas10@gmail.com',
+        SecureToken: constants.SMTP_TOKEN,
+        To: client.clientEmail,
         From: 'sofialpizard@gmail.com',
-        Subject: 'This is the subject',
-        Body: 'And this is the body'
+        Subject: 'Reservación de cancha',
+        Body: this.getEmailBodyClient()
       }).then(message => alert(message));
     }
   };
@@ -73,6 +85,18 @@ class Confirmation extends Component {
                 </Button>
               </Grid>
             </Grid>
+            <Typography
+              variant="body2"
+              gutterBottom
+              align="center"
+              className="spaceUp"
+            >
+              *Se ha enviado un correo con esta información.
+            </Typography>
+            <Typography variant="body2" gutterBottom align="center">
+              Si no ve el correo electrónico, por favor revise su carpeta de
+              Spam.
+            </Typography>
           </Paper>
         </Grid>
       </Grid>
