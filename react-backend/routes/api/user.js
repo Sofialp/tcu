@@ -1,5 +1,26 @@
 const passwordHash = require('password-hash');
 
+const updateNewPassword = async (request, response, connection) => {
+  const { password, email } = request.body;
+  await updatePassword(password, email, connection);
+  response.json({ status: 'ok' });
+};
+
+const updatePassword = async (password, email, connection) => {
+  const result = await new Promise(async function(resolve, reject) {
+    connection.query(
+      `UPDATE booking.user SET password = '${password}' WHERE email = '${email}'`,
+      function(error, data) {
+        if (error) {
+          reject(error);
+        }
+        resolve(JSON.parse(JSON.stringify(data)));
+      }
+    );
+  });
+  return result;
+};
+
 const getUserByCredentials = async (request, response, connection) => {
   const { password, email } = request.body;
   if (password && email) {
@@ -53,5 +74,6 @@ const getUserStructure = user => {
 };
 
 module.exports = {
-  getUserByCredentials
+  getUserByCredentials,
+  updateNewPassword
 };

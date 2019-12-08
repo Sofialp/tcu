@@ -189,3 +189,10 @@ export const getBookingOfVenue = (venueId, date) => {
     .then(response => response.data)
     .catch(error => console.log(error));
 };
+
+export const updatePassword = (password, email) => {
+  return axios
+    .patch(`${BACKEND_URL}/admin/password`, { password, email })
+    .then(response => response.data)
+    .catch(error => console.log(error));
+};

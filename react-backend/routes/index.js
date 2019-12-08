@@ -13,7 +13,7 @@ const {
 } = require('./api/venues');
 
 const { getAccountDetails, saveModifyAccount } = require('./api/account');
-const { getUserByCredentials } = require('./api/user');
+const { getUserByCredentials, updateNewPassword } = require('./api/user');
 const {
   getCategories,
   saveModifyCategory,
@@ -163,5 +163,10 @@ module.exports = function(app, connection) {
   /* GET bookings of venue. */
   app.post('/bookings', function(req, res) {
     getBookingsOfVenue(req, res, connection);
+  });
+
+  /* Update password. */
+  app.patch('/admin/password', function(req, res) {
+    updateNewPassword(req, res, connection);
   });
 };

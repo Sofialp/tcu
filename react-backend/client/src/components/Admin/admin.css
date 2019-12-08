@@ -9,3 +9,7 @@
 .paddingTopBottom {
   padding: 14px 0;
 }
+
+.marginTop {
+  margin: 20px 0 !important;
+}
